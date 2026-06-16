@@ -1,0 +1,48 @@
+# Ajustar data com fuso horário correto de São Paulo
+import json
+import csv
+from datetime import datetime, timezone, timedelta
+
+# Fuso de São Paulo (UTC-3)
+sp = timezone(timedelta(hours=-3))
+
+# Primeiro lê o ndjson para pegar as datas originais
+datas_por_id = {}
+with open("data.ndjson", "r", encoding="utf-8") as f:
+    for linha in f:
+        linha = linha.strip()
+        if not linha:
+            continue
+        tweet = json.loads(linha)
+        tweet_id = tweet.get("rest_id", "")
+        data_utc = tweet.get("legacy", {}).get("created_at", "")
+        if tweet_id and data_utc:
+            data_obj = datetime.strptime(data_utc, "%a %b %d %H:%M:%S %z %Y")
+            data_sp = data_obj.astimezone(sp)
+            datas_por_id[tweet_id] = {
+                "dia": data_sp.strftime("%d/%m/%Y"),
+                "horario": data_sp.strftime("%H:%M")
+            }
+
+# Agora atualiza o CSV com as datas corrigidas
+resultados = []
+with open("resultado_sentimentos.csv", "r", encoding="utf-8-sig") as f:
+    reader = csv.DictReader(f)
+    for linha in reader:
+        tweet_id = linha["id"]
+        if tweet_id in datas_por_id:
+            linha["dia"] = datas_por_id[tweet_id]["dia"]
+            linha["horario"] = datas_por_id[tweet_id]["horario"]
+        resultados.append(linha)
+
+# Salva o CSV corrigido
+campos = ["id","dia","horario","texto_original","texto_limpo","sentimento",
+          "prob_positivo","prob_negativo","prob_neutro","likes","retweets"]
+
+with open("resultado_sentimentos.csv", "w", newline="", encoding="utf-8-sig") as f:
+    writer = csv.DictWriter(f, fieldnames=campos)
+    writer.writeheader()
+    writer.writerows(resultados)
+
+print(f"Pronto! {len(resultados)} linhas atualizadas.")
+print(f"Exemplo — dia: {resultados[0]['dia']} | horario: {resultados[0]['horario']}")
