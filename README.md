@@ -73,4 +73,4 @@ Os arquivos deste repositório estão organizados da seguinte forma:
 - /scripts — scripts de tratamento e análise (teste.py, ajustar_data.py)
 - /dictionaries — dicionário de stopwords removidas
 - /figures — gráficos e nuvens de palavras
-- /docs — pôster do projeto (poster_quem_ama_cuida.pdf), apresentado na disciplina
+- /docs — pôster do projeto (poster_quem_ama_cuida.pdf) e análise detalhada de sentimentos cena a cena (Analise_minuto_a_minuto_v2.docx), material suplementar ao capítulo do livro
