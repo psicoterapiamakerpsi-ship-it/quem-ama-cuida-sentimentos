@@ -1,0 +1,12 @@
+{
+  "creators": [
+    {"name": "Cabral, Caroline Fortes", "affiliation": "Universidade de São Paulo (ECA-USP)"},
+    {"name": "Paiva, Emílio Vidal de Negreiros", "affiliation": "Universidade de São Paulo (ECA-USP)"},
+    {"name": "Alves, Lucas Rosa", "affiliation": "Universidade de São Paulo (ECA-USP)"}
+  ],
+  "title": "Monitoramento de audiência pelo X: estudo de recepção do 1º capítulo de Quem Ama Cuida",
+  "description": "Repositório com scripts, dados processados, documentação metodológica e pôster do estudo de recepção do primeiro capítulo da telenovela Quem Ama Cuida (TV Globo, 2026), material suplementar a capítulo de livro sobre métodos digitais.",
+  "upload_type": "software",
+  "license": "CC0-1.0",
+  "keywords": ["telenovela", "estudos de recepção", "métodos digitais", "análise de sentimentos", "X (Twitter)"]
+}
