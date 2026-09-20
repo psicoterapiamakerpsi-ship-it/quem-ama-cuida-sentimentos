@@ -65,3 +65,12 @@ PEETERS, S.; HAGEN, S. The 4CAT Capture and Analysis Toolkit: A modular tool for
 
 Licença
 Este repositório está disponível sob a licença Creative Commons Zero v1.0 Universal (CC0-1.0). Você pode usar, adaptar e redistribuir o conteúdo livremente, inclusive para fins comerciais, sem necessidade de atribuição.
+
+## Organização do repositório
+
+Os arquivos deste repositório estão organizados da seguinte forma:
+- /data — dados processados (resultado_sentimentos.csv)
+- /scripts — scripts de tratamento e análise (teste.py, ajustar_data.py)
+- /dictionaries — dicionário de stopwords removidas
+- /figures — gráficos e nuvens de palavras
+- /docs — pôster do projeto (poster_quem_ama_cuida.pdf), apresentado na disciplina
